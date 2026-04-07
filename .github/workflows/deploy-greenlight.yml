@@ -1,0 +1,39 @@
+name: Deploy Greenlight
+
+on:
+  push:
+    branches: [v3.0.x-develop]
+    paths:
+      - 'deploy/**'
+  workflow_dispatch:
+
+concurrency:
+  group: greenlight
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy to server
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: root
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            cd /opt/bbb
+
+            git pull origin v3.0.x-develop
+
+            cp deploy/nginx/greenlight-v3.nginx /usr/share/bigbluebutton/nginx/greenlight-v3.nginx
+            cp deploy/nginx/keycloak.nginx /usr/share/bigbluebutton/nginx/keycloak.nginx
+            nginx -t && nginx -s reload
+
+            cd deploy
+            docker compose pull
+            docker compose up -d --remove-orphans
+
+            docker image prune -f
