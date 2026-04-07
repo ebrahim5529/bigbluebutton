@@ -1,0 +1,68 @@
+name: Deploy HTML5 Client
+
+on:
+  push:
+    branches: [v3.0.x-develop]
+    paths:
+      - 'bigbluebutton-html5/**'
+  workflow_dispatch:
+
+concurrency:
+  group: bbb-html5
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: bigbluebutton-html5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+          cache-dependency-path: bigbluebutton-html5/package-lock.json
+
+      - run: npm ci --no-progress
+
+      - run: npm run build
+
+      - run: npm run build-safari
+
+      - name: Prepare safari bundles
+        run: |
+          cd dist
+          HASH="$(ls -1 | grep -Eo 'bundle\.[a-f0-9]{20}\.js' | head -n 1 | grep -Eo '[a-f0-9]{20}' || true)"
+          if [ -n "$HASH" ]; then
+            for FILE in *.safari.js *.safari.js.map; do
+              [ -f "$FILE" ] || continue
+              [[ "$FILE" == *".$HASH."* ]] && continue
+              PREFIX="${FILE%%.safari.js*}"
+              SUFFIX="${FILE#*.safari.js}"
+              mv -- "$FILE" "${PREFIX}.${HASH}.safari.js${SUFFIX}"
+            done
+          fi
+
+      - name: Deploy to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: root
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          source: "bigbluebutton-html5/dist/*"
+          target: "/usr/share/bigbluebutton/html5-client/"
+          strip_components: 2
+
+      - name: Restart services
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: root
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            ln -sf /usr/share/bigbluebutton/nginx/bbb-html5.nginx.static /usr/share/bigbluebutton/nginx/bbb-html5.nginx
+            nginx -t && systemctl restart nginx
+            echo "HTML5 client deployed"
