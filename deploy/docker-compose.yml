@@ -48,6 +48,8 @@ services:
       - KC_HTTP_ENABLED=true
       - KC_HTTP_RELATIVE_PATH=/keycloak
       - KC_HOSTNAME=https://ashal.duckdns.org/keycloak
+      - KC_HOSTNAME_ADMIN=https://ashal.duckdns.org/keycloak
+      - KC_HOSTNAME_STRICT=false
       - KC_PROXY_HEADERS=xforwarded
     ports:
       - 127.0.0.1:5151:8080
