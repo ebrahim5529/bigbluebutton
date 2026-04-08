@@ -18,7 +18,7 @@ services:
 
   greenlight-v3:
     entrypoint: [bin/start]
-    image: ghcr.io/mostafa-m-hussein/greenlight:latest
+    image: ghcr.io/ebrahim5529/greenlight:latest
     container_name: greenlight-v3
     restart: unless-stopped
     env_file: .env
