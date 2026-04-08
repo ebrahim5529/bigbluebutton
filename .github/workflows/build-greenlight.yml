@@ -1,0 +1,63 @@
+name: Build and Deploy Greenlight
+
+on:
+  push:
+    branches: [v3.0.x-develop]
+    paths:
+      - 'greenlight/**'
+  workflow_dispatch:
+
+concurrency:
+  group: greenlight-build
+  cancel-in-progress: false
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository_owner }}/greenlight
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=sha,prefix=
+            type=raw,value=latest
+
+      - uses: docker/build-push-action@v6
+        with:
+          context: ./greenlight
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          build-args: |
+            RAILS_ENV=production
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to server
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: root
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            cd /opt/bbb/deploy
+            docker compose pull greenlight-v3
+            docker compose up -d greenlight-v3
+            docker image prune -f
