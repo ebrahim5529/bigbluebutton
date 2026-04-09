@@ -22,6 +22,7 @@ i18next
   .use(initReactI18next)
   .use(HttpApi)
   .init({
+    lng: 'ar',
     backend: {
       loadPath: `${process.env.RELATIVE_URL_ROOT}/api/v1/locales/{{lng}}.json`,
     },

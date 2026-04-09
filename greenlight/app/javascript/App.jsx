@@ -57,8 +57,10 @@ export default function App() {
   // i18n
   const { i18n } = useTranslation();
   useEffect(() => {
-    i18n.changeLanguage(currentUser?.language);
-  }, [currentUser?.language]);
+    i18n.changeLanguage('ar');
+    document.dir = 'rtl';
+    document.documentElement.lang = 'ar';
+  }, []);
 
   // Greenlight V3 brand-color theming
   const { isLoading, data: brandColors } = useSiteSetting(['PrimaryColor', 'PrimaryColorLight']);
