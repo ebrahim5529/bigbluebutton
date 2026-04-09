@@ -361,6 +361,7 @@ class NavBar extends Component {
         {!hideTopRow && (
           <Styled.Top>
             <Styled.Left>
+              <Styled.Logo src="/html5client/resources/images/logo.png" alt="BigBlueButton Logo" />
               {shouldShowNavBarToggleButton && isExpanded && document.dir === 'ltr'
                 && <Styled.ArrowLeft iconName="left_arrow" />}
               {shouldShowNavBarToggleButton && !isExpanded && document.dir === 'rtl'
