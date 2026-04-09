@@ -65,13 +65,17 @@ export default function App() {
 
   if (isLoading) return null;
 
-  document.documentElement.style.setProperty('--brand-color', brandColors.PrimaryColor);
-  document.documentElement.style.setProperty('--brand-color-light', brandColors.PrimaryColorLight);
-  document.documentElement.style.setProperty('--toastify-color-success', brandColors.PrimaryColor);
+  // Override brand colors with Ashhal Platform theme
+  const primaryColor = '#10a0c4';
+  const primaryColorLight = '#fbb436';
+
+  document.documentElement.style.setProperty('--brand-color', primaryColor);
+  document.documentElement.style.setProperty('--brand-color-light', primaryColorLight);
+  document.documentElement.style.setProperty('--toastify-color-success', primaryColor);
 
   return (
     <>
-      <Title>BigBlueButton</Title>
+      <Title>منصة أسهل التعليمية</Title>
       {(homePage || currentUser.signed_in) && <Header /> }
       <Container className={pageHeight}>
         <Outlet />

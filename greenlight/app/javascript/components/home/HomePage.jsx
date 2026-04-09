@@ -21,7 +21,7 @@ import {
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import {
-  ArrowRightIcon, Cog8ToothIcon, ComputerDesktopIcon, VideoCameraIcon, WrenchScrewdriverIcon,
+  ArrowRightIcon, LightBulbIcon, RocketLaunchIcon, CheckCircleIcon, SparklesIcon,
 } from '@heroicons/react/24/outline';
 import { toast } from 'react-toastify';
 import { useAuth } from '../../contexts/auth/AuthProvider';
@@ -117,30 +117,28 @@ export default function HomePage() {
           <HomepageFeatureCard
             title={t('homepage.meeting_title')}
             description={t('homepage.meeting_description')}
-            icon={<ComputerDesktopIcon className="hi-s text-white" />}
+            icon={<LightBulbIcon className="hi-s text-white" />}
           />
         </Col>
-        { (recordValue !== 'false') && (
-          <Col className="mb-3">
-            <HomepageFeatureCard
-              title={t('homepage.recording_title')}
-              description={t('homepage.recording_description')}
-              icon={<VideoCameraIcon className="hi-s text-white" />}
-            />
-          </Col>
-        )}
+        <Col className="mb-3">
+          <HomepageFeatureCard
+            title={t('homepage.recording_title')}
+            description={t('homepage.recording_description')}
+            icon={<RocketLaunchIcon className="hi-s text-white" />}
+          />
+        </Col>
         <Col className="mb-3">
           <HomepageFeatureCard
             title={t('homepage.settings_title')}
             description={t('homepage.settings_description')}
-            icon={<Cog8ToothIcon className="hi-s text-white" />}
+            icon={<CheckCircleIcon className="hi-s text-white" />}
           />
         </Col>
         <Col className="mb-3">
           <HomepageFeatureCard
             title={t('homepage.and_more_title')}
             description={t('homepage.and_more_description')}
-            icon={<WrenchScrewdriverIcon className="hi-s text-white" />}
+            icon={<SparklesIcon className="hi-s text-white" />}
           />
         </Col>
       </Row>

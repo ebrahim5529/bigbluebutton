@@ -1,6 +1,6 @@
-# BigBlueButton open source conferencing system - http://www.bigbluebutton.org/.
+# منصة أسهل التعليمية open source conferencing system - http://www.bigbluebutton.org/.
 #
-# Copyright (c) 2022 BigBlueButton Inc. and by respective authors (see below).
+# Copyright (c) 2022 منصة أسهل التعليمية Inc. and by respective authors (see below).
 #
 # This program is free software; you can redistribute it and/or modify it under the
 # terms of the GNU Lesser General Public License as published by the Free Software
@@ -47,27 +47,27 @@
 
 ar:
   opengraph:
-    description: تعلم باستخدام بك_بلو_بتن ، الحل الموثوق به لعقد المؤتمرات عبر الويب مفتوح المصدر والذي يتيح التعاون الافتراضي السلس وتجارب التعلم عبر الإنترنت.
+    description: تعلم باستخدام منصة أسهل التعليمية ، الحل الموثوق به لعقد المؤتمرات عبر الويب مفتوح المصدر والذي يتيح التعاون الافتراضي السلس وتجارب التعلم عبر الإنترنت.
   meeting:
     moderator_message: "لدعوة شخص ما إلى الاجتماع ، أرسل لهم هذا الرابط:"
     access_code: "رمز الوصول: %{code}"
   email:
     activation:
       account_activation: تفعيل الحساب
-      welcome_to_bbb: مرحبًا بك في  بك_بلو_بتن!
+      welcome_to_bbb: مرحبًا بك في  منصة أسهل التعليمية!
       get_started: للبدء ، يرجى تفعيل حسابك بالضغط على الزر أدناه.
       activate_account: تفعيل حساب
       link_expires: ستنتهي صلاحية الرابط في غضون 24 ساعة.
       if_link_expires: في حالة انتهاء صلاحية الرابط ، يرجى تسجيل الدخول وطلب بريد إلكتروني جديد للتنشيط.
     invitation:
-      invitation_to_join: دعوة  بك_بلو_بتن
-      you_have_been_invited: "لقد تمت دعوتك لإنشاء حساب  بك_بلو_بتن بواسطة %{name}."
+      invitation_to_join: دعوة  منصة أسهل التعليمية
+      you_have_been_invited: "لقد تمت دعوتك لإنشاء حساب  منصة أسهل التعليمية بواسطة %{name}."
       get_started: للتسجيل ، يرجى النقر فوق الزر أدناه واتباع الخطوات.
       valid_invitation: الدعوة صالحة لمدة 7 أيام.
       sign_up: التسجيل
     new_user_signup:
-      new_user: تسجيل مستخدم جديد في بك_بلو_بتن
-      new_user_description: قام مستخدم جديد بالتسجيل لاستخدام بك_بلو_بتن.
+      new_user: تسجيل مستخدم جديد في منصة أسهل التعليمية
+      new_user_description: قام مستخدم جديد بالتسجيل لاستخدام منصة أسهل التعليمية.
       name: "الاسم: %{name}"
       email: "البريد: %{email}"
       admin_panel: "لوحة الإدارة"
