@@ -55,7 +55,8 @@ const ChatList: React.FC<ChatListProps> = ({ chats }) => {
   return (
     <Styled.Messages>
       <Styled.Container>
-        <Styled.MessagesTitle data-test="messageTitle">
+        <Styled.MessagesTitle data-test="messageTitle" style={{ display: 'flex', alignItems: 'center' }}>
+          <img src="/html5client/resources/images/logo.png" alt="Logo" style={{ height: '25px', marginInlineEnd: '15px' }} />
           {intl.formatMessage(intlMessages.messagesTitle)}
         </Styled.MessagesTitle>
       </Styled.Container>
