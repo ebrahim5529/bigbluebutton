@@ -179,8 +179,8 @@ const PluginDataConsumptionManager: React.FC = () => {
             const usage = hookInfo.get(hookName)!;
             return (
               <HookComponent
-                key={hookName}
-                version={usage.version}
+                numberOfUses={usage.count}
+                key={`${hookName}-${usage.version}`}
                 data={data}
               />
             );
@@ -191,14 +191,16 @@ const PluginDataConsumptionManager: React.FC = () => {
           const HookComponent = hookWithArguments.componentToRender;
           return (
             <CustomDataConsumptionHooksErrorBoundary
-              key={makeCustomHookIdentifierFromArgs(hookWithArguments.hookArguments)}
+              key={`${makeCustomHookIdentifierFromArgs(hookWithArguments.hookArguments)}-${hookWithArguments.version}`}
               hookWithArguments={hookWithArguments}
               dataConsumptionHook={DataConsumptionHooks.CUSTOM_SUBSCRIPTION}
               setDataConsumptionHookWithArgumentUtilizationCount={setSubscriptionHookWithArgumentInfo}
             >
               <HookComponent
-                key={makeCustomHookIdentifierFromArgs(hookWithArguments.hookArguments)}
-                version={hookWithArguments.version}
+                key={
+                  `${makeCustomHookIdentifierFromArgs(hookWithArguments.hookArguments)}-${hookWithArguments.version}`
+                }
+                numberOfUses={hookWithArguments.numberOfUses}
                 hookArguments={hookWithArguments.hookArguments}
               />
             </CustomDataConsumptionHooksErrorBoundary>
@@ -210,13 +212,15 @@ const PluginDataConsumptionManager: React.FC = () => {
           const HookComponent = hookWithArguments.componentToRender;
           return (
             <CustomDataConsumptionHooksErrorBoundary
-              key={makeCustomHookIdentifierFromArgs(hookWithArguments.hookArguments)}
+              key={`${makeCustomHookIdentifierFromArgs(hookWithArguments.hookArguments)}-${hookWithArguments.version}`}
               hookWithArguments={hookWithArguments}
               dataConsumptionHook={DataConsumptionHooks.CUSTOM_QUERY}
               setDataConsumptionHookWithArgumentUtilizationCount={setQueryHookWithArgumentInfo}
             >
               <HookComponent
-                key={makeCustomHookIdentifierFromArgs(hookWithArguments.hookArguments)}
+                key={
+                  `${makeCustomHookIdentifierFromArgs(hookWithArguments.hookArguments)}-${hookWithArguments.version}`
+                }
                 hookArguments={hookWithArguments.hookArguments}
                 resolveQuery={() => {
                   updateHookUsage(() => {}, () => {}, setQueryHookWithArgumentInfo,

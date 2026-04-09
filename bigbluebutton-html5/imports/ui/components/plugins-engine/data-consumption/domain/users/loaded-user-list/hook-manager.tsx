@@ -18,8 +18,8 @@ const LoadedUserListHookContainer = (prop: GeneralHookManagerProps) => {
     role: user.role,
   }));
 
-  const { version } = prop;
-  const previousVersion = usePreviousValue(version);
+  const { numberOfUses } = prop;
+  const previousNumberOfUses = usePreviousValue(numberOfUses);
 
   const updateLoadedUserListForPlugin = () => {
     window.dispatchEvent(new CustomEvent<
@@ -33,11 +33,11 @@ const LoadedUserListHookContainer = (prop: GeneralHookManagerProps) => {
   };
 
   useEffect(() => {
-    const previousVersionValue = previousVersion ?? 0;
-    if (version > previousVersionValue) {
+    const previousNumberOfUsesValue = previousNumberOfUses || 0;
+    if (numberOfUses > previousNumberOfUsesValue) {
       updateLoadedUserListForPlugin();
     }
-  }, [version]);
+  }, [numberOfUses]);
 
   useEffect(() => {
     updateLoadedUserListForPlugin();

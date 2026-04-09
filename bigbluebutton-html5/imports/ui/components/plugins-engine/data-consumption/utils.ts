@@ -22,10 +22,9 @@ const hookUsageSetStateCallback = (
     if (removeEntry) {
       mapToBeSet.delete(hookArgumentsAsKey);
     } else {
-      const versionIncrement = (delta > 0 ? 1 : 0);
       mapToBeSet.set(hookArgumentsAsKey, {
         count: (mapObj.get(hookName)?.get(hookArgumentsAsKey)?.count || 0) + delta,
-        version: (mapObj.get(hookName)?.get(hookArgumentsAsKey)?.version ?? 0) + versionIncrement,
+        version: (mapObj.get(hookName)?.get(hookArgumentsAsKey)?.version || 0) + 1,
         hookArguments,
       });
     }
@@ -49,10 +48,9 @@ const updateHookUsage = (
     && hookName !== DataConsumptionHooks.CUSTOM_QUERY) {
     setHookUtilizationCount((mapObj) => {
       const newMap = new Map<string, EssentialHookInformation>(mapObj.entries());
-      const versionIncrement = (delta > 0 ? 1 : 0);
       newMap.set(hookName, {
         count: (mapObj.get(hookName)?.count || 0) + delta,
-        version: (mapObj.get(hookName)?.version ?? 0) + versionIncrement,
+        version: (mapObj.get(hookName)?.version || 0) + 1,
       });
       return newMap;
     });

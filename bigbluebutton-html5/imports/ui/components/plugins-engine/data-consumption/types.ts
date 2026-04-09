@@ -4,7 +4,7 @@ import { ObjectToCustomSubscriptionHookContainerMap } from './domain/shared/cust
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface GeneralHookManagerProps<T = any> {
     data: T;
-    version: number;
+    numberOfUses: number;
 }
 
 export type ObjectToCustomHookContainerMap =

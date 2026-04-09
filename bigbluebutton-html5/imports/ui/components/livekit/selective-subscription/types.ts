@@ -1,36 +1,26 @@
-export enum MediaType {
-  AUDIO = 'audio',
-  CAMERA = 'camera',
-  SCREENSHARE = 'screenshare',
+export enum ParticipantTypes {
+  SENDER = 'SENDONLY',
+  RECEIVER = 'RECVONLY',
+  SENDRECV = 'SENDRECV',
 }
+export type AudioGroupParticipantType = ParticipantTypes.SENDER | ParticipantTypes.RECEIVER | ParticipantTypes.SENDRECV;
 
-/** Reserved group IDs for the explicit public space per media type. */
-export const PUBLIC_GROUP_IDS: Record<MediaType, string> = {
-  [MediaType.AUDIO]: 'public:audio',
-  [MediaType.CAMERA]: 'public:camera',
-  [MediaType.SCREENSHARE]: 'public:screenshare',
-};
-
-export type MediaGroupParticipant = {
+export type AudioGroupParticipant = {
   userId: string;
   groupId: string;
-  mediaType: MediaType;
-  sender: boolean;
-  receiver: boolean;
+  participantType: AudioGroupParticipantType;
   active: boolean;
 }
 
-export type MediaGroupStream = {
+export type AudioGroupStream = {
   userId: string;
   groupId: string;
-  mediaType: MediaType;
-  sender: boolean;
-  receiver: boolean;
+  participantType: AudioGroupParticipantType;
   active: boolean;
 };
 
-export type MediaSendersData = {
-  senders: MediaGroupStream[];
+export type AudioSendersData = {
+  senders: AudioGroupStream[];
   inAnyGroup: boolean;
 }
 

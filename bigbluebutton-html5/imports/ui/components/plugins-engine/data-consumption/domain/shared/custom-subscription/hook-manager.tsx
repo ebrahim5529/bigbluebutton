@@ -13,9 +13,9 @@ import usePreviousValue from '/imports/ui/hooks/usePreviousValue';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const CustomSubscriptionHookContainer = (props: SubscriptionHookWithArgumentsContainerProps) => {
-  const { hookArguments, version } = props;
+  const { hookArguments, numberOfUses } = props;
   const { query: queryFromPlugin, variables } = hookArguments;
-  const previousVersion = usePreviousValue(version);
+  const previousNumberOfUses = usePreviousValue(numberOfUses);
 
   const customSubscriptionData = useDeduplicatedSubscription(gql`${queryFromPlugin}`, {
     variables,
@@ -43,11 +43,11 @@ const CustomSubscriptionHookContainer = (props: SubscriptionHookWithArgumentsCon
     updateCustomSubscriptionForPlugin();
   }, [customSubscriptionData]);
   useEffect(() => {
-    const previousVersionValue = previousVersion ?? 0;
-    if (version > previousVersionValue) {
+    const previousNumberOfUsesValue = previousNumberOfUses || 0;
+    if (numberOfUses > previousNumberOfUsesValue) {
       updateCustomSubscriptionForPlugin();
     }
-  }, [version]);
+  }, [numberOfUses]);
 
   return null;
 };

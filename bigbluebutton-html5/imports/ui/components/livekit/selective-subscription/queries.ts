@@ -1,29 +1,25 @@
 import { gql } from '@apollo/client';
 
-export const MEDIA_GROUP_STREAMS_SUBSCRIPTION = gql`
-  subscription MediaGroupStreams {
-    user_mediaGroup {
+export const AUDIO_GROUP_STREAMS_SUBSCRIPTION = gql`
+  subscription AudioGroupStreams {
+    user_audioGroup {
       userId
       groupId
-      mediaType
-      sender
-      receiver
+      participantType
       active
     }
   }
 `;
 
-export const MY_MEDIA_GROUPS = gql`
-  query MyMediaGroups($userId: String!) {
-    user_mediaGroup(
+export const MY_AUDIO_GROUPS = gql`
+  query MyAudioGroups($userId: String!) {
+    user_audioGroup(
       where: {
         userId: { _eq: $userId }
       }
     ) {
       groupId
-      mediaType
-      sender
-      receiver
+      participantType
       active
     }
   }

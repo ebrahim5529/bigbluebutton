@@ -44,6 +44,7 @@ interface ChatMessageToolbarProps {
   isCustomPluginMessage: boolean;
   own: boolean;
   amIModerator: boolean;
+  isBreakoutRoom: boolean;
   messageSequence: number;
   onReactionPopoverOpenChange(open: boolean): void;
   reactionPopoverIsOpen: boolean;
@@ -61,7 +62,7 @@ interface ChatMessageToolbarProps {
 
 const ChatMessageToolbar: React.FC<ChatMessageToolbarProps> = (props) => {
   const {
-    isCustomPluginMessage, deleted, messageSequence, own, amIModerator,
+    isCustomPluginMessage, deleted, messageSequence, own, amIModerator, isBreakoutRoom,
     locked, onReactionPopoverOpenChange, reactionPopoverIsOpen, hasToolbar,
     chatDeleteEnabled, chatEditEnabled, chatReactionsEnabled, chatReplyEnabled,
     onDelete, onEdit, onReply,
@@ -78,7 +79,7 @@ const ChatMessageToolbar: React.FC<ChatMessageToolbarProps> = (props) => {
   const showReplyButton = chatReplyEnabled;
   const showReactionsButton = chatReactionsEnabled;
   const showEditButton = chatEditEnabled && own && !isCustomPluginMessage;
-  const showDeleteButton = chatDeleteEnabled && (own || amIModerator);
+  const showDeleteButton = chatDeleteEnabled && (own || (amIModerator && !isBreakoutRoom));
   const showDivider = (showReplyButton || showReactionsButton) && (showEditButton || showDeleteButton);
 
   const container = (

@@ -342,7 +342,6 @@ class App extends Component {
     const {
       presentationFitToWidth,
     } = this.state;
-
     return (
       <>
         <ScreenReaderAlertAdapter />
@@ -401,7 +400,6 @@ class App extends Component {
                 area="media"
               />
             ) : null}
-
           <AudioCaptionsSpeechContainer />
           {this.renderAudioCaptions()}
           { (

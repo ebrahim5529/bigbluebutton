@@ -114,7 +114,6 @@ export interface ComponentsFlags {
   hasCurrentPresentation: boolean;
   hasSharedNotes: boolean;
   isSharedNotesPinned: boolean;
-  isEtherpadSharedNotes: boolean;
 }
 
 export interface Meeting {

@@ -21,8 +21,8 @@ const TalkingIndicatorHookContainer = (props: GeneralHookManagerProps) => {
     }) as Partial<UserVoice>,
   );
 
-  const { version } = props;
-  const previousVersion = usePreviousValue(version);
+  const { numberOfUses } = props;
+  const previousNumberOfUses = usePreviousValue(numberOfUses);
 
   const updateTalkingIndicatorForPlugin = () => {
     window.dispatchEvent(new CustomEvent<
@@ -36,11 +36,11 @@ const TalkingIndicatorHookContainer = (props: GeneralHookManagerProps) => {
   };
 
   useEffect(() => {
-    const previousVersionValue = previousVersion ?? 0;
-    if (version > previousVersionValue) {
+    const previousNumberOfUsesValue = previousNumberOfUses || 0;
+    if (numberOfUses > previousNumberOfUsesValue) {
       updateTalkingIndicatorForPlugin();
     }
-  }, [version]);
+  }, [numberOfUses]);
   useEffect(() => {
     updateTalkingIndicatorForPlugin();
   }, [userVoice]);

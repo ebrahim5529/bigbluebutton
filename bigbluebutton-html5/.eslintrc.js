@@ -22,7 +22,6 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     'max-classes-per-file': ['error', 2],
     'react/require-default-props': 0,
-    'linebreak-style': 0,
   },
   globals: {
     browser: 'writable',

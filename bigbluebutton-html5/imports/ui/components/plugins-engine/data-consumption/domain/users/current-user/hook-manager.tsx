@@ -20,8 +20,8 @@ const CurrentUserHookContainer: React.FunctionComponent<
 ) => {
   const previousCurrentUser = useRef<GraphqlDataHookSubscriptionResponse<Partial<User>> | null>(null);
 
-  const { data: currentUser, version } = props;
-  const previousVersion = usePreviousValue(version);
+  const { data: currentUser, numberOfUses } = props;
+  const previousNumberOfUses = usePreviousValue(numberOfUses);
   const updateUserForPlugin = () => {
     const currentUserProjection: PluginSdk.GraphqlResponseWrapper<
     PluginSdk.CurrentUserData> = formatCurrentUserResponseFromGraphql(
@@ -46,11 +46,11 @@ const CurrentUserHookContainer: React.FunctionComponent<
     }
   }, [currentUser]);
   useEffect(() => {
-    const previousVersionValue = previousVersion ?? 0;
-    if (version > previousVersionValue) {
+    const previousNumberOfUsesValue = previousNumberOfUses || 0;
+    if (numberOfUses > previousNumberOfUsesValue) {
       updateUserForPlugin();
     }
-  }, [version]);
+  }, [numberOfUses]);
 
   return null;
 };

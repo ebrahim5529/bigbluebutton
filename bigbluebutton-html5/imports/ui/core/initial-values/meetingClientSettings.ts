@@ -7,6 +7,7 @@ export const meetingClientSettingsInitialValues: MeetingClientSettings = {
       terminateAndRetryConnection: 30000,
       mobileFontSize: '16px',
       desktopFontSize: '14px',
+      audioChatNotification: false,
       autoJoin: true,
       listenOnlyMode: true,
       forceListenOnly: false,
@@ -14,6 +15,7 @@ export const meetingClientSettingsInitialValues: MeetingClientSettings = {
       skipCheckOnJoin: false,
       enableDynamicAudioDeviceSelection: true,
       clientTitle: 'BigBlueButton',
+      appName: 'BigBlueButton HTML5 Client',
       bbbServerVersion: 'HTML5_FULL_BBB_VERSION',
       displayBbbServerVersion: true,
       copyright: '©2023 BigBlueButton Inc.',
@@ -80,6 +82,7 @@ export const meetingClientSettingsInitialValues: MeetingClientSettings = {
         threshold: -50,
         duration: 4000,
       },
+      remainingTimeThreshold: 30,
       remainingTimeAlertThresholdArray: [
         1,
         5,
@@ -200,15 +203,16 @@ export const meetingClientSettingsInitialValues: MeetingClientSettings = {
       },
       connectionTimeout: 60000,
       showHelpButton: true,
+      effectiveConnection: [
+        'critical',
+        'danger',
+        'warning',
+      ],
       fallbackOnEmptyLocaleString: true,
+      disableWebsocketFallback: true,
       maxMutationPayloadSize: 10485760, // 10MB
       timeoutBeforeRedirectOnMeetingEnd: 20000,
       showConnectionErrors: [3001, 3002, 3003, 3004, 3005, 3006],
-    },
-    sharedNotes: {
-      serverUrl: '',
-      maxDocumentChars: 99999,
-      maxLengthForContentUpdate: 512,
     },
     externalVideoPlayer: {
       enabled: true,
@@ -216,7 +220,7 @@ export const meetingClientSettingsInitialValues: MeetingClientSettings = {
     kurento: {
       wsUrl: 'HOST',
       cameraWsOptions: {
-        connectionTimeout: 4000,
+        wsConnectionTimeout: 4000,
         maxRetries: 7,
         debug: false,
         heartbeat: {
@@ -470,6 +474,10 @@ export const meetingClientSettingsInitialValues: MeetingClientSettings = {
         ],
       },
     },
+    syncUsersWithConnectionManager: {
+      enabled: false,
+      syncInterval: 60000,
+    },
     poll: {
       enabled: true,
       allowCustomResponseInput: true,
@@ -483,6 +491,9 @@ export const meetingClientSettingsInitialValues: MeetingClientSettings = {
       },
     },
     captions: {
+      enabled: true,
+      id: 'captions',
+      dictation: false,
       background: '#000000',
       font: {
         color: '#ffffff',
@@ -497,12 +508,14 @@ export const meetingClientSettingsInitialValues: MeetingClientSettings = {
       ],
       lines: 2,
       time: 5000,
+      showButton: false,
+      defaultPad: 'en',
       captionLimit: 3,
       lineLimit: 60,
     },
     timer: {
       enabled: true,
-      time: 5,
+      alarm: true,
       music: {
         enabled: false,
         volume: 0.4,
@@ -510,14 +523,18 @@ export const meetingClientSettingsInitialValues: MeetingClientSettings = {
         track2: 'CalmMusic',
         track3: 'aristocratDrums',
       },
+      time: 5,
     },
     chat: {
       enabled: true,
       itemsPerPage: 100,
+      timeBetweenFetchs: 1000,
       enableSaveAndCopyPublicChat: true,
+      bufferChatInsertsMs: 0,
       startClosed: false,
       min_message_length: 1,
       max_message_length: 5000,
+      grouping_messages_window: 10000,
       type_system: 'SYSTEM_MESSAGE',
       type_public: 'PUBLIC_ACCESS',
       type_private: 'PRIVATE_ACCESS',
@@ -666,7 +683,6 @@ export const meetingClientSettingsInitialValues: MeetingClientSettings = {
           },
           unpublishOnMute: false,
           unpublishAfterMuteMs: 5000,
-          useLiveKitAudioState: false,
         },
         camera: {
           publishOptions: {
@@ -925,12 +941,31 @@ export const meetingClientSettingsInitialValues: MeetingClientSettings = {
         'board.jpg',
       ],
     },
+    minBrowserVersions: {
+      safari: '>=14',
+      chrome: '>=87',
+      firefox: '>=80',
+      edge: '>=85',
+      mobile: {
+        safari: '>=14',
+        chrome: '>=87',
+      },
+    },
   },
   private: {
-    analytics: {},
+    analytics: {
+      includeChat: true,
+    },
     app: {
       host: '127.0.0.1',
       localesUrl: '/locale-list',
+      pencilChunkLength: 100,
+      loadSlidesFromHttpAlways: false,
+    },
+    prometheus: {
+      enabled: false,
+      path: '/metrics',
+      collectDefaultMetrics: false,
     },
   },
 };

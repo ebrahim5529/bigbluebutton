@@ -147,12 +147,6 @@ const NavbarToggleButton = styled(Button)`
   `}
 `;
 
-const Logo = styled.img`
-  height: 2rem;
-  margin: 0 .5rem;
-  display: block;
-`;
-
 export default {
   Navbar,
   Top,
@@ -167,5 +161,4 @@ export default {
   PluginInfoComponent,
   PluginComponentWrapper,
   PluginSeparatorWrapper,
-  Logo,
 };

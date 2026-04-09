@@ -7,10 +7,11 @@ export const muteUser = debounce(
   (
     id: string,
     muted: boolean | undefined,
+    isBreakout: boolean,
     isModerator: boolean,
     toggleVoice: (userId: string, muted: boolean) => void,
   ) => {
-    if (!isModerator || muted) return null;
+    if (!isModerator || isBreakout || muted) return null;
     toggleVoice(id, true);
     return null;
   },

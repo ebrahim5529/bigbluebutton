@@ -14,7 +14,7 @@ const devEnv = 'development';
 const isDev = env === devEnv;
 const isSafariTarget = process.env.TARGET === 'safari';
 
-process.stdout.write(`Building: ${process.env.TARGET}\n`);
+console.log(`Building: ${process.env.TARGET}`);
 
 const config = {
   entry: './client/main.tsx',
@@ -80,8 +80,6 @@ const config = {
     alias: {
       '/client': path.resolve(__dirname, 'client/'),
       '/imports': path.resolve(__dirname, '/imports/'),
-      '@tiptap/core/jsx-runtime': path.resolve(__dirname, 'node_modules/@tiptap/core/dist/jsx-runtime/jsx-runtime.js'),
-      yjs: path.resolve(__dirname, 'node_modules/yjs'),
     },
   },
   module: {

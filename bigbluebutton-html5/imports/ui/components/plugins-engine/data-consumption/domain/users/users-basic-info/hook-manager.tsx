@@ -25,8 +25,8 @@ const UsersBasicInfoHookContainer = (prop: GeneralHookManagerProps) => {
     presenter: user.presenter,
   }));
 
-  const { version } = prop;
-  const previousVersion = usePreviousValue(version);
+  const { numberOfUses } = prop;
+  const previousNumberOfUses = usePreviousValue(numberOfUses);
 
   const updateUsersBasicInfoForPlugin = () => {
     window.dispatchEvent(new CustomEvent<
@@ -40,11 +40,11 @@ const UsersBasicInfoHookContainer = (prop: GeneralHookManagerProps) => {
   };
 
   useEffect(() => {
-    const previousVersionValue = previousVersion ?? 0;
-    if (version > previousVersionValue) {
+    const previousNumberOfUsesValue = previousNumberOfUses || 0;
+    if (numberOfUses > previousNumberOfUsesValue) {
       updateUsersBasicInfoForPlugin();
     }
-  }, [version]);
+  }, [numberOfUses]);
 
   useEffect(() => {
     updateUsersBasicInfoForPlugin();

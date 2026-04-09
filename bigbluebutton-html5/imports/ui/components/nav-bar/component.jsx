@@ -72,32 +72,6 @@ const propTypes = {
   pluginNavBarItems: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string,
   })).isRequired,
-  intl: PropTypes.shape({
-    formatMessage: PropTypes.func.isRequired,
-  }).isRequired,
-  sidebarNavigation: PropTypes.shape({
-    isOpen: PropTypes.bool.isRequired,
-  }).isRequired,
-  sidebarContent: PropTypes.shape({
-    isOpen: PropTypes.bool.isRequired,
-  }).isRequired,
-  layoutContextDispatch: PropTypes.func.isRequired,
-  showSessionDetailsOnJoin: PropTypes.bool,
-  meetingId: PropTypes.string,
-  amIModerator: PropTypes.bool.isRequired,
-  style: PropTypes.shape({
-    top: PropTypes.number,
-    left: PropTypes.number,
-    height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  }).isRequired,
-  main: PropTypes.string,
-  isPinned: PropTypes.bool.isRequired,
-  currentUserId: PropTypes.string.isRequired,
-  isDirectLeaveButtonEnabled: PropTypes.bool.isRequired,
-  isConnected: PropTypes.bool.isRequired,
-  hideTopRow: PropTypes.bool.isRequired,
-  hasUnreadNotes: PropTypes.bool.isRequired,
 };
 
 const defaultProps = {
@@ -312,13 +286,13 @@ class NavBar extends Component {
     });
   }
 
-  static renderModal(isOpen, setIsOpen, modalPriority, ModalComponent, otherOptions) {
+  renderModal(isOpen, setIsOpen, priority, Component, otherOptions) {
     return isOpen ? (
-      <ModalComponent
+      <Component
         {...{
           ...otherOptions,
           onRequestClose: () => setIsOpen(false),
-          priority: modalPriority,
+          priority,
           setIsOpen,
           isOpen,
         }}
@@ -387,7 +361,6 @@ class NavBar extends Component {
         {!hideTopRow && (
           <Styled.Top>
             <Styled.Left>
-              <Styled.Logo src="/html5client/resources/images/logo.png" alt="منصة أسهل التعليمية" />
               {shouldShowNavBarToggleButton && isExpanded && document.dir === 'ltr'
                 && <Styled.ArrowLeft iconName="left_arrow" />}
               {shouldShowNavBarToggleButton && !isExpanded && document.dir === 'rtl'
@@ -445,7 +418,7 @@ class NavBar extends Component {
                       if (value) open();
                       else close();
                     };
-                    return NavBar.renderModal(isOpen, this.setModalIsOpen, 'low', SessionDetailsModal);
+                    return this.renderModal(isOpen, this.setModalIsOpen, 'low', SessionDetailsModal);
                   }
                 }
               </ModalRegistration>
@@ -481,5 +454,4 @@ class NavBar extends Component {
 
 NavBar.propTypes = propTypes;
 NavBar.defaultProps = defaultProps;
-
 export default injectIntl(NavBar);

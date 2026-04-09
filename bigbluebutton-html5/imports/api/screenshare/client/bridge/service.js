@@ -21,9 +21,10 @@ const getBoundGDM = () => {
   }
 }
 
-const getScreenStream = async (constraints) => {
-  const effectiveConstraints = constraints
-    || window.meetingClientSettings.public.kurento.screenshare.constraints;
+const getScreenStream = async () => {
+  const {
+    constraints: GDM_CONSTRAINTS,
+  } = window.meetingClientSettings.public.kurento.screenshare;
 
   const gDMCallback = (stream) => {
     // Some older Chromium variants choke on gDM when audio: true by NOT generating
@@ -34,10 +35,10 @@ const getScreenStream = async (constraints) => {
     }
 
     if (typeof stream.getVideoTracks === 'function'
-      && typeof effectiveConstraints.video === 'object') {
+      && typeof GDM_CONSTRAINTS.video === 'object') {
       stream.getVideoTracks().forEach(track => {
         if (typeof track.applyConstraints  === 'function') {
-          track.applyConstraints(effectiveConstraints.video).catch(error => {
+          track.applyConstraints(GDM_CONSTRAINTS.video).catch(error => {
             logger.warn({
               logCode: 'screenshare_videoconstraint_failed',
               extraInfo: { errorName: error.name, errorCode: error.code },
@@ -49,10 +50,10 @@ const getScreenStream = async (constraints) => {
     }
 
     if (typeof stream.getAudioTracks === 'function'
-      && typeof effectiveConstraints.audio === 'object') {
+      && typeof GDM_CONSTRAINTS.audio === 'object') {
       stream.getAudioTracks().forEach(track => {
         if (typeof track.applyConstraints  === 'function') {
-          track.applyConstraints(effectiveConstraints.audio).catch(error => {
+          track.applyConstraints(GDM_CONSTRAINTS.audio).catch(error => {
             logger.warn({
               logCode: 'screenshare_audioconstraint_failed',
               extraInfo: { errorName: error.name, errorCode: error.code },
@@ -68,7 +69,7 @@ const getScreenStream = async (constraints) => {
   const getDisplayMedia = getBoundGDM();
 
   if (typeof getDisplayMedia === 'function') {
-    return getDisplayMedia(effectiveConstraints)
+    return getDisplayMedia(GDM_CONSTRAINTS)
       .then(gDMCallback)
       .catch(error => {
         const normalizedError = normalizeGetDisplayMediaError(error);

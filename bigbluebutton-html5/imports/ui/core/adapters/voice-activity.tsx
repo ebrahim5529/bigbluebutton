@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useReactiveVar } from '@apollo/client';
 import useVoiceActivity from '/imports/ui/core/hooks/useVoiceActivity';
-import useShouldUseLiveKitAudioState from '/imports/ui/core/hooks/livekit/useShouldUseLiveKitAudioState';
 import {
   setWhoIsUnmutedLoading,
   useWhoIsUnmutedConsumersCount,
@@ -20,7 +19,6 @@ import {
 import ConnectionStatus from '/imports/ui/core/graphql/singletons/connectionStatus';
 
 const VoiceActivityAdapter = () => {
-  const shouldUseLiveKitAudioState = useShouldUseLiveKitAudioState();
   const whoIsUnmutedConsumersCount = useWhoIsUnmutedConsumersCount();
   const whoIsTalkingConsumersCount = useWhoIsTalkingConsumersCount();
   const talkingUserConsumersCount = useTalkingUserConsumersCount();
@@ -45,16 +43,12 @@ const VoiceActivityAdapter = () => {
   }, [voiceActivityLoading]);
 
   useEffect(() => {
-    // Only clear updates on disconnection when using BBB/GraphQL audio state.
-    // LiveKit state should be resilient to GraphQL disconnections on certain
-    // occasions. Complete absence of data from either sources is treated in
-    // the LK hooks.
-    if (!connected && !shouldUseLiveKitAudioState) {
+    if (!connected) {
       dispatchWhoIsUnmutedUpdate(undefined);
       dispatchWhoIsTalkingUpdate(undefined);
       dispatchTalkingUserUpdate(undefined);
     }
-  }, [connected, shouldUseLiveKitAudioState]);
+  }, [connected]);
 
   return null;
 };

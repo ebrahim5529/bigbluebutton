@@ -1,60 +1,90 @@
-import { useMemo } from 'react';
-import useShouldUseLiveKitAudioState from './livekit/useShouldUseLiveKitAudioState';
-import useWhoIsUnmutedLiveKit, {
-  useWhoIsUnmutedConsumersCount as useWhoIsUnmutedConsumersCountLiveKit,
-  setWhoIsUnmutedLoading as setWhoIsUnmutedLoadingLiveKit,
-} from './livekit/useWhoIsUnmutedLiveKit';
-import useWhoIsUnmutedGraphql, {
-  useWhoIsUnmutedConsumersCount as useWhoIsUnmutedConsumersCountGraphql,
-  setWhoIsUnmutedLoading as setWhoIsUnmutedLoadingGraphql,
-  dispatchWhoIsUnmutedUpdate as dispatchWhoIsUnmutedUpdateGraphql,
-} from './useWhoIsUnmutedGraphql';
-import { UnmutedUsersState } from './types';
+import { useEffect } from 'react';
+import { isEqual } from 'radash';
+import { makeVar, useReactiveVar } from '@apollo/client';
 
-/**
- * Router hook that conditionally uses either BBB's GraphQL or LiveKit's
- * client-side state to provide the unmuted users state.
- *
- * When `useLiveKitAudioState` is enabled AND `audioBridge === 'livekit'`,
- * this hook uses LiveKit's track publication state, else BBB's.
- */
-const useWhoIsUnmuted = (): UnmutedUsersState => {
-  const shouldUseLiveKit = useShouldUseLiveKitAudioState();
-  const bbbMuteState = useWhoIsUnmutedGraphql();
-  const liveKitMuteState = useWhoIsUnmutedLiveKit();
+const createUseWhoIsUnmuted = () => {
+  const countVar = makeVar(0);
+  const stateVar = makeVar<Record<string, boolean>>({});
+  const loadingVar = makeVar(true);
 
-  return useMemo(() => {
-    if (shouldUseLiveKit) return liveKitMuteState;
+  const setWhoIsUnmutedState = (newState: Record<string, boolean>) => stateVar(newState);
 
-    return bbbMuteState;
-  }, [shouldUseLiveKit, bbbMuteState, liveKitMuteState]);
+  const setWhoIsUnmutedLoading = (loading: boolean) => loadingVar(loading);
+
+  const getWhoIsUnmuted = () => stateVar();
+
+  const dispatchWhoIsUnmutedUpdate = (data?: { userId: string; muted: boolean; }[]) => {
+    if (countVar() === 0) return;
+
+    if (!data) {
+      stateVar({});
+      return;
+    }
+
+    const newUnmutedUsers = { ...getWhoIsUnmuted() };
+
+    data.forEach((voice) => {
+      const { userId, muted } = voice;
+
+      // Delete the user key instead of setting it to false
+      // to keep the state object small and easy to compare with isEqual
+      if (muted) {
+        delete newUnmutedUsers[userId];
+        return;
+      }
+
+      newUnmutedUsers[userId] = true;
+    });
+
+    if (isEqual(getWhoIsUnmuted(), newUnmutedUsers)) {
+      return;
+    }
+
+    setWhoIsUnmutedState(newUnmutedUsers);
+  };
+
+  const useWhoIsUnmutedConsumersCount = () => useReactiveVar(countVar);
+
+  const useWhoIsUnmuted = () => {
+    const unmutedUsers = useReactiveVar(stateVar);
+    const loading = useReactiveVar(loadingVar);
+
+    useEffect(() => {
+      countVar(countVar() + 1);
+      return () => {
+        countVar(countVar() - 1);
+        if (countVar() === 0) {
+          setWhoIsUnmutedState({});
+        }
+      };
+    }, []);
+
+    return {
+      data: unmutedUsers,
+      loading,
+    };
+  };
+
+  return [
+    useWhoIsUnmuted,
+    useWhoIsUnmutedConsumersCount,
+    setWhoIsUnmutedLoading,
+    dispatchWhoIsUnmutedUpdate,
+  ] as const;
 };
 
-const useWhoIsUnmutedConsumersCount = () => {
-  const shouldUseLiveKit = useShouldUseLiveKitAudioState();
-  const bbbCount = useWhoIsUnmutedConsumersCountGraphql();
-  const livekitCount = useWhoIsUnmutedConsumersCountLiveKit();
-
-  return useMemo(() => {
-    if (shouldUseLiveKit) return livekitCount;
-
-    return bbbCount;
-  }, [shouldUseLiveKit, bbbCount, livekitCount]);
-};
-
-const setWhoIsUnmutedLoading = (loading: boolean) => {
-  setWhoIsUnmutedLoadingGraphql(loading);
-  setWhoIsUnmutedLoadingLiveKit(loading);
-};
-
-// Re-export GraphQL dispatch function for backward compatibility
-// Only used by adapters when BBB mode is active
-export const dispatchWhoIsUnmutedUpdate = dispatchWhoIsUnmutedUpdateGraphql;
+const [
+  useWhoIsUnmuted,
+  useWhoIsUnmutedConsumersCount,
+  setWhoIsUnmutedLoading,
+  dispatchWhoIsUnmutedUpdate,
+] = createUseWhoIsUnmuted();
 
 export {
   useWhoIsUnmuted,
   useWhoIsUnmutedConsumersCount,
   setWhoIsUnmutedLoading,
+  dispatchWhoIsUnmutedUpdate,
 };
 
 export default useWhoIsUnmuted;

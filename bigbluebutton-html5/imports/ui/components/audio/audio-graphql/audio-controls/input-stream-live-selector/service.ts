@@ -51,19 +51,13 @@ export const muteLoadingState: ReactiveVar<boolean> = makeVar(false);
 export const useIsMuteLoading = () => useReactiveVar(muteLoadingState);
 
 const toggleMute = (
-  isMuted: boolean,
+  muted: boolean,
   toggleVoice: (userId: string, muted: boolean) => void,
   actionType = 'user_action',
 ) => {
   const meetingStaticStore = meetingStaticData.getMeetingData();
-  const newMutedState = !isMuted;
   const toggle = (storageKey: string) => {
-    // If we are using LiveKit audio state, we allow calling the mute/unmute
-    // actions directly on the AudioManager instance.
-    const shouldRunLocalMute = AudioManager.shouldUseLiveKitAudioState()
-      && newMutedState !== AudioManager.isMuted;
-
-    if (isMuted) {
+    if (muted) {
       if (AudioManager.inputDeviceId === 'listen-only') {
         // User is in duplex audio, passive-sendrecv, but has no input device set
         // Unmuting should not be allowed at all
@@ -74,21 +68,15 @@ const toggleMute = (
         logCode: 'audiomanager_unmute_audio',
         extraInfo: { logType: actionType },
       }, 'microphone unmuted');
-      Storage.setItem(storageKey, newMutedState);
-
-      if (shouldRunLocalMute) AudioManager.unmute();
-
-      toggleVoice(Auth.userID as string, newMutedState);
+      Storage.setItem(storageKey, false);
+      toggleVoice(Auth.userID as string, false);
     } else {
       logger.info({
         logCode: 'audiomanager_mute_audio',
         extraInfo: { logType: actionType },
       }, 'microphone muted');
-      Storage.setItem(storageKey, newMutedState);
-
-      if (shouldRunLocalMute) AudioManager.mute();
-
-      toggleVoice(Auth.userID as string, newMutedState);
+      Storage.setItem(storageKey, true);
+      toggleVoice(Auth.userID as string, true);
     }
   };
 

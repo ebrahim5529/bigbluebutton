@@ -23,8 +23,8 @@ const LoadedChatMessagesHookContainer = (props: GeneralHookManagerProps) => {
     messageMetadata: message.messageMetadata,
   }));
 
-  const { version } = props;
-  const previousVersion = usePreviousValue(version);
+  const { numberOfUses } = props;
+  const previousNumberOfUses = usePreviousValue(numberOfUses);
 
   const updateLoadedChatMessagesForPlugin = () => {
     window.dispatchEvent(new CustomEvent<
@@ -38,11 +38,11 @@ const LoadedChatMessagesHookContainer = (props: GeneralHookManagerProps) => {
   };
 
   useEffect(() => {
-    const previousVersionValue = previousVersion ?? 0;
-    if (version > previousVersionValue) {
+    const previousNumberOfUsesValue = previousNumberOfUses || 0;
+    if (numberOfUses > previousNumberOfUsesValue) {
       updateLoadedChatMessagesForPlugin();
     }
-  }, [version]);
+  }, [numberOfUses]);
   useEffect(() => {
     updateLoadedChatMessagesForPlugin();
   }, [chatMessagesData]);
