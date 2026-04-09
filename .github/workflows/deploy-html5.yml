@@ -47,22 +47,36 @@ jobs:
           fi
 
       - name: Deploy to server
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: root
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script_stop: false
+          script: |
+            mkdir -p /tmp/html5-staging
+
+      - name: Upload build
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: root
           key: ${{ secrets.SERVER_SSH_KEY }}
-          source: "bigbluebutton-html5/dist/*"
-          target: "/usr/share/bigbluebutton/html5-client/"
+          source: "bigbluebutton-html5/dist/"
+          target: "/tmp/html5-staging/"
           strip_components: 2
+          overwrite: true
 
-      - name: Restart services
+      - name: Install and restart
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: root
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
+            rm -rf /usr/share/bigbluebutton/html5-client/*
+            cp -r /tmp/html5-staging/* /usr/share/bigbluebutton/html5-client/
+            rm -rf /tmp/html5-staging
             ln -sf /usr/share/bigbluebutton/nginx/bbb-html5.nginx.static /usr/share/bigbluebutton/nginx/bbb-html5.nginx
             nginx -t && systemctl restart nginx
             echo "HTML5 client deployed"
