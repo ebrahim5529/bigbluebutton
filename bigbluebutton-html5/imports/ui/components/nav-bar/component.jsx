@@ -180,9 +180,9 @@ class NavBar extends Component {
         });
 
         if (breakoutName === defaultBreakoutName) {
-          document.title = `${breakoutNum} - ${meetingName}`;
+          document.title = `أسهل - ${breakoutNum} - ${meetingName}`;
         } else {
-          document.title = `${breakoutName} - ${meetingName}`;
+          document.title = `أسهل - ${breakoutName} - ${meetingName}`;
         }
       }
     }

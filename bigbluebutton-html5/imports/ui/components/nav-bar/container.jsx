@@ -57,7 +57,7 @@ const NavBarContainer = ({ children, ...props }) => {
   const hideNavBar = getFromUserSettings('bbb_hide_nav_bar', false);
 
   const PUBLIC_CONFIG = window.meetingClientSettings.public;
-  const CLIENT_TITLE = getFromUserSettings('bbb_client_title', PUBLIC_CONFIG.app.clientTitle);
+  const CLIENT_TITLE = getFromUserSettings('bbb_client_title', 'منصة أسهل التعليمية' || PUBLIC_CONFIG.app.clientTitle);
   const IS_DIRECT_LEAVE_BUTTON_ENABLED = getFromUserSettings(
     'bbb_direct_leave_button',
     PUBLIC_CONFIG.app.defaultSettings.application.directLeaveButton,

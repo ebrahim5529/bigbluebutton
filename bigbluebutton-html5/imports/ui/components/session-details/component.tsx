@@ -66,8 +66,6 @@ const COPY_MESSAGE_TIMEOUT = 3000;
 
 const SessionDetails: React.FC<SessionDetailsProps> = (props) => {
   const {
-    welcomeMessage,
-    welcomeMsgForModerators,
     isOpen,
     onRequestClose,
     priority,
@@ -116,8 +114,7 @@ const SessionDetails: React.FC<SessionDetailsProps> = (props) => {
         isFullWidth={isMobile || !(loginUrl || (formattedDialNum && formattedTelVoice))}
       >
         <div>
-          <Styled.WelcomeMessage dangerouslySetInnerHTML={{ __html: welcomeMessage }} />
-          <Styled.WelcomeMessage dangerouslySetInnerHTML={{ __html: welcomeMsgForModerators }} />
+          <Styled.WelcomeMessage dangerouslySetInnerHTML={{ __html: "مرحباً بك في أسهل التعليمية!" }} />
         </div>
         <div>
           {loginUrl && (
