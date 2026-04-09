@@ -1,4 +1,35 @@
 {
+  "start": "ابدأ",
+  "search": "بحث",
+  "home": "الرئيسية",
+  "previous": "السابق",
+  "back": "رجوع",
+  "next": "التالي",
+  "view": "عرض",
+  "join": "انضمام",
+  "edit": "تعديل",
+  "save": "حفظ",
+  "save_changes": "حفظ التغييرات",
+  "update": "تحديث",
+  "report": "تقرير",
+  "share": "مشاركة",
+  "cancel": "إلغاء",
+  "reset": "إعادة تعيين",
+  "close": "إغلاق",
+  "delete": "حذف",
+  "copy": "نسخ رابط الانضمام",
+  "copy_viewer_code": "نسخ رمز المشاهد",
+  "copy_moderator_code": "نسخ رمز المشرف",
+  "or": "أو",
+  "online": "متصل",
+  "help_center": "مركز المساعدة",
+  "are_you_sure": "هل أنت متأكد؟",
+  "return_home": "العودة للرئيسية",
+  "created_at": "أنشئ في",
+  "view_recordings": "عرض التسجيلات",
+  "join_session": "انضمام للجلسة",
+  "no_result_search_input": "لم يتم العثور على نتائج لـ \"{{ searchInput }}\"",
+  "action_permanent": "لا يمكن التراجع عن هذا الإجراء.",
   "homepage": {
     "welcome_bbb": "منصة أسهل التعليمية",
     "bigbluebutton_description": "مؤسسة شبابية طموحة ومتجددة، مُتَطلعة للعطاءِ اللامحدود، تُعنى بمستقبل التعليم وتقديم المناهج الدراسية بأسلوب راقي، وحديث، كما تسعى إلى توفير بيئة آمنة وجاذبة في التعليم عن بُعد، بشكل أكثر فاعلية خارج الجدران التقليدية، ومشاركة مؤسسات التعليم الحكومية والخاصة في تغيير شكل التعليم في الحاضر والمستقبل ضمن الأطر المتاحة.",
@@ -12,6 +43,680 @@
     "settings_title": "الأهداف",
     "settings_description": "نتطلع إلى الرقي بالتعليم وتسهيل الحصول على مصادره ووسائله المختلفة من خلال: دعم التعليم بالمصادر اللازمة لتحقيق أهدافه السامية، تقديم قيمة مضافة للتعليم عن بُعد، التنوع في حزم الخدمات المقدمة، مواكبة التطورات الحاصلة في مجال التعليم حول لعالم، دمج التقنيات الحديثة في تقديم المحتوى التعليمي، ابتكار بيئة تعليمية آمنة لجميع أطراف العملية التعليمية.",
     "and_more_title": "قيمنا المضافة",
-    "and_more_description": "سرعة الاستجابة للتطورات في مجال التعليم وصناعة المحتوى، بيئة العمل الافتراضية المريحة والآمنة، خدمة العملاء المدربة والاحترافية، التدريب الخاص بالعمليات والمهارات، احترافية التواصل في برامج التواصل الاجتماعي والتسويق."
+    "and_more_description": "سرعة الاستجابة للتطورات في مجال التعليم وصناعة المحتوى، بيئة العمل الافتراضية المريحة والآمنة، خدمة العملاء المدربة والاحترافية، التدريب الخاص بالعمليات والمهارات، احترافية التواصل في برامج التواصل الاجتماعي والتسويق.",
+    "enter_meeting_url": "أدخل رابط الاجتماع",
+    "enter_meeting_url_instruction": "يرجى إدخال رابط اجتماع منصة أسهل التعليمية في الحقل أدناه."
+  },
+  "authentication": {
+    "sign_in": "تسجيل الدخول",
+    "sign_up": "إنشاء حساب",
+    "sign_out": "تسجيل الخروج",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "confirm_password": "تأكيد كلمة المرور",
+    "enter_email": "أدخل بريدك الإلكتروني",
+    "enter_name": "أدخل اسمك",
+    "remember_me": "تذكرني",
+    "forgot_password": "نسيت كلمة المرور؟",
+    "dont_have_account": "ليس لديك حساب؟",
+    "create_account": "إنشاء حساب",
+    "create_an_account": "إنشاء حساب جديد",
+    "already_have_account": "لديك حساب بالفعل؟"
+  },
+  "user": {
+    "user": "مستخدم",
+    "users": "المستخدمون",
+    "name": "الاسم",
+    "email_address": "عنوان البريد الإلكتروني",
+    "authenticator": "الموثق",
+    "full_name": "الاسم الكامل",
+    "no_user_found": "لم يتم العثور على مستخدم",
+    "type_three_characters": "يرجى كتابة ثلاثة (3) أحرف أو أكثر لإظهار المستخدمين الآخرين.",
+    "search_not_found": "لم يتم العثور على مستخدمين",
+    "profile": {
+      "profile": "الملف الشخصي",
+      "language": "اللغة",
+      "role": "الصلاحية",
+      "administrator": "مسؤول",
+      "guest": "ضيف"
+    },
+    "account": {
+      "account_info": "معلومات الحساب",
+      "delete_account": "حذف الحساب",
+      "change_password": "تغيير كلمة المرور",
+      "set_password": "تعيين كلمة مرور جديدة",
+      "reset_password": "إعادة تعيين كلمة المرور",
+      "update_account_info": "تحديث معلومات الحساب",
+      "current_password": "كلمة المرور الحالية",
+      "new_password": "كلمة المرور الجديدة",
+      "confirm_password": "تأكيد كلمة المرور",
+      "permanently_delete_account": "حذف حسابك نهائياً",
+      "delete_account_description": "إذا اخترت حذف حسابك، فلن يكون قابلاً للاسترداد. سيتم إزالة جميع المعلومات المتعلقة بحسابك، بما في ذلك الإعدادات والغرف والتسجيلات.",
+      "delete_account_confirmation": "نعم، أود حذف حسابي",
+      "are_you_sure_delete_account": "هل أنت متأكد أنك تريد حذف حسابك؟"
+    },
+    "avatar": {
+      "upload_avatar": "رفع صورة رمزية",
+      "delete_avatar": "حذف الصورة الرمزية",
+      "crop_avatar": "قص صورتك الرمزية"
+    },
+    "pending": {
+      "title": "طلب تسجيل قيد الانتظار",
+      "message": "شكراً لتسجيلك! حسابك حالياً قيد انتظار موافقة المسؤول."
+    }
+  },
+  "room": {
+    "room": "غرفة",
+    "rooms": "الغرف",
+    "room_name": "اسم الغرفة",
+    "add_new_room": "+ غرفة جديدة",
+    "create_room": "إنشاء غرفة",
+    "delete_room": "حذف الغرفة",
+    "create_new_room": "إنشاء غرفة جديدة",
+    "enter_room_name": "أدخل اسم الغرفة",
+    "shared_by": "مشتركة بواسطة",
+    "last_session": "آخر جلسة: {{ localizedTime }}",
+    "no_last_session": "لم يتم إنشاء جلسة سابقة",
+    "search_not_found": "لم يتم العثور على غرف",
+    "rooms_list_is_empty": "ليس لديك أي غرف بعد!",
+    "rooms_list_empty_create_room": "أنشئ غرفتك الأولى بالضغط على الزر أدناه وإدخال اسم الغرفة.",
+    "meeting": {
+      "start_meeting": "بدء الاجتماع",
+      "join_meeting": "انضمام للاجتماع",
+      "meeting_invitation": "لقد تمت دعوتك للانضمام",
+      "meeting_not_started": "الاجتماع لم يبدأ بعد",
+      "join_meeting_automatically": "ستنضم تلقائياً عند بدء الاجتماع",
+      "recording_consent": "أقر بأن هذه الجلسة قد يتم تسجيلها. قد يشمل ذلك صوتي وفيديو الخاص بي إذا تم تفعيلهما."
+    },
+    "presentation": {
+      "presentation": "عرض تقديمي",
+      "click_to_upload": "اضغط للرفع",
+      "drag_and_drop": " أو اسحب وأفلت",
+      "upload_description": "ارفع أي مستند مكتبي أو ملف PDF (لا يتجاوز {{size}}). اعتماداً على حجم الملف، قد يتطلب الأمر وقتاً إضافياً للرفع قبل استخدامه",
+      "delete_presentation": "حذف العرض التقديمي",
+      "are_you_sure_delete_presentation": "هل أنت متأكد أنك تريد حذف هذا العرض التقديمي؟"
+    },
+    "shared_access": {
+      "access": "الوصول",
+      "add_share_access": "+ مشاركة الوصول",
+      "share_room_access": "مشاركة الوصول للغرفة",
+      "add_some_users": "حان وقت إضافة بعض المستخدمين!",
+      "add_some_users_description": "لإضافة مستخدمين جدد، اضغط على الزر أدناه وابحث أو اختر المستخدمين الذين تريد مشاركة هذه الغرفة معهم.",
+      "delete_shared_access": "حذف الوصول المشترك",
+      "are_you_sure_delete_shared_access": "هل أنت متأكد أنك تريد حذف هذا الوصول المشترك؟"
+    },
+    "settings": {
+      "settings": "الإعدادات",
+      "room_name": "اسم الغرفة",
+      "user_settings": "إعدادات المستخدم",
+      "allow_room_to_be_recorded": "السماح بتسجيل الغرفة",
+      "require_signed_in": "طلب تسجيل دخول المستخدمين قبل الانضمام",
+      "require_signed_in_message": "يجب تسجيل الدخول للانضمام لهذه الغرفة.",
+      "require_mod_approval": "طلب موافقة المشرف قبل الانضمام",
+      "allow_any_user_to_start": "السماح لأي مستخدم ببدء هذا الاجتماع",
+      "all_users_join_as_mods": "جميع المستخدمين ينضمون كمشرفين",
+      "mute_users_on_join": "كتم صوت المستخدمين عند الانضمام",
+      "generate": "توليد",
+      "access_code": "رمز الوصول",
+      "mod_access_code": "رمز وصول المشرف",
+      "mod_access_code_optional": "رمز وصول المشرف (اختياري)",
+      "access_code_required": "يرجى إدخال رمز الوصول",
+      "wrong_access_code": "رمز وصول خاطئ",
+      "generate_viewers_access_code": "توليد رمز وصول للمشاهدين",
+      "generate_mods_access_code": "توليد رمز وصول للمشرفين",
+      "server_tag": "اختر نوع الخادم لهذه الغرفة",
+      "default_tag_name": "افتراضي",
+      "server_tag_desired": "مرغوب",
+      "server_tag_required": "مطلوب",
+      "are_you_sure_delete_room": "هل أنت متأكد أنك تريد حذف هذه الغرفة؟"
+    }
+  },
+  "recording": {
+    "recording": "تسجيل",
+    "recordings": "التسجيلات",
+    "processing": "جاري معالجة التسجيلات...",
+    "name": "الاسم",
+    "length": "المدة",
+    "users": "المستخدمون",
+    "visibility": "الظهور",
+    "formats": " الصيغ",
+    "published": "منشور",
+    "unpublished": "غير منشور",
+    "protected": "محمي",
+    "public": "عام",
+    "public_protected": "عام/محمي",
+    "length_in_minutes": "{{recording.length}} دقيقة.",
+    "processing_recording": "جاري معالجة التسجيل، قد يستغرق ذلك عدة دقائق...",
+    "copy_recording_urls": "نسخ روابط التسجيل",
+    "recordings_list_empty": "ليس لديك أي تسجيلات بعد!",
+    "public_recordings_list_empty": "لا توجد تسجيلات عامة بعد!",
+    "recordings_list_empty_description": "ستظهر التسجيلات هنا بعد بدء اجتماع وتسجيله.",
+    "public_recordings_list_empty_description": "ستظهر التسجيلات هنا عند توفرها.",
+    "delete_recording": "حذف التسجيل",
+    "are_you_sure_delete_recording": "هل أنت متأكد أنك تريد حذف هذا التسجيل؟",
+    "search_not_found": "لم يتم العثور على تسجيلات"
+  },
+  "admin": {
+    "admin_panel": "لوحة الإدارة",
+    "manage_users": {
+      "manage_users": "إدارة المستخدمين",
+      "active": "نشط",
+      "approve": "موافقة",
+      "decline": "رفض",
+      "pending": "قيد الانتظار",
+      "banned": "محظور",
+      "ban": "حظر",
+      "unban": "إلغاء الحظر",
+      "deleted": "محذوف",
+      "invited_tab": "مدعو",
+      "invite_user": "دعوة مستخدم",
+      "send_invitation": "إرسال دعوة",
+      "enter_user_email": "أدخل بريد المستخدم",
+      "new_user": "مستخدم جديد",
+      "add_new_user": "مستخدم جديد",
+      "create_new_user": "إنشاء مستخدم جديد",
+      "edit_user": "تعديل مستخدم",
+      "delete_user": "حذف مستخدم",
+      "users_edit_path": "المستخدمون/تعديل",
+      "create_account": "إنشاء حساب",
+      "create_room": "إنشاء غرفة",
+      "create_new_room": "إنشاء غرفة جديدة",
+      "user_created_at": "أنشئ: {{localizedTime}}",
+      "are_you_sure_delete_account": "هل أنت متأكد أنك تريد حذف حساب {{user.name}}؟",
+      "delete_account_warning": "إذا اخترت حذف هذا الحساب، فلن يكون قابلاً للاسترداد.",
+      "empty_active_users": "لا يوجد مستخدمون نشطون على هذا الخادم بعد!",
+      "empty_active_users_subtext": "عندما تتغير حالة المستخدم إلى نشط، سيظهر هنا.",
+      "empty_pending_users": "لا يوجد مستخدمون قيد الانتظار على هذا الخادم بعد!",
+      "empty_pending_users_subtext": "عندما تتغير حالة المستخدم إلى قيد الانتظار، سيظهر هنا.",
+      "empty_banned_users": "لا يوجد مستخدمون محظورون على هذا الخادم بعد!",
+      "empty_banned_users_subtext": "عندما تتغير حالة المستخدم إلى محظور، سيظهر هنا.",
+      "empty_invited_users": "لا يوجد مستخدمون مدعوون على هذا الخادم بعد!",
+      "empty_invited_users_subtext": "عندما تتغير حالة المستخدم إلى مدعو، سيظهر هنا.",
+      "invited": {
+        "time_sent": "وقت الإرسال",
+        "valid": "صالح",
+        "revoke": "سحب"
+      }
+    },
+    "server_rooms": {
+      "server_rooms": "غرف الخادم",
+      "name": "الاسم",
+      "owner": "المالك",
+      "room_id": "معرف الغرفة",
+      "participants": "المشاركون",
+      "status": "الحالة",
+      "running": "قيد التشغيل",
+      "not_running": "متوقف",
+      "active": "نشط",
+      "current_session": "الجلسة الحالية: {{lastSession}}",
+      "last_session": "آخر جلسة: {{localizedTime}}",
+      "no_meeting_yet": "لا توجد اجتماعات بعد.",
+      "delete_server_rooms": "حذف غرفة الخادم",
+      "resync_recordings": "إعادة مزامنة التسجيلات",
+      "empty_room_list": "لا توجد غرف خادم بعد!",
+      "empty_room_list_subtext": "ستظهر الغرف هنا بعد إنشاء غرفتك الأولى."
+    },
+    "server_recordings": {
+      "server_recordings": "تسجيلات الخادم",
+      "latest_recordings": "أحدث التسجيلات",
+      "no_recordings_found": "لم يتم العثور على تسجيلات."
+    },
+    "site_settings": {
+      "site_settings": "إعدادات الموقع",
+      "customize_greenlight": "تخصيص Greenlight",
+      "appearance": {
+        "appearance": "المظهر",
+        "brand_color": "لون العلامة التجارية",
+        "regular": "عادي",
+        "lighten": "تفتيح",
+        "brand_image": "صورة العلامة التجارية",
+        "click_to_upload": "اضغط للرفع",
+        "drag_and_drop": " أو اسحب وأفلت",
+        "upload_brand_image_description": "ارفع أي ملف PNG أو JPG أو SVG (لا يتجاوز {{size}}). قد يتطلب الأمر وقتاً إضافياً للرفع حسب حجم الملف.",
+        "remove_branding_image": "إزالة صورة العلامة التجارية"
+      },
+      "administration": {
+        "administration": "الإدارة",
+        "terms": "الشروط والأحكام",
+        "privacy": "إشعار الخصوصية",
+        "privacy_policy": "إشعار الخصوصية",
+        "change_term_links": "تغيير روابط الشروط التي تظهر أسفل الصفحة",
+        "change_privacy_link": "تغيير رابط الخصوصية الذي يظهر أسفل الصفحة",
+        "helpcenter": "مركز المساعدة",
+        "change_helpcenter_link": "تغيير رابط مركز المساعدة الذي يظهر في القائمة المنسدلة للملف الشخصي",
+        "maintenance": "بنر الصيانة",
+        "change_maintenance_text": "تغيير نص بنر الصيانة الذي يظهر في الهيدر",
+        "change_url": "تغيير الرابط",
+        "set_text": "تعيين النص",
+        "clear_banner": "مسح البنر",
+        "enter_link": "أدخل الرابط هنا"
+      },
+      "settings": {
+        "settings": "الإعدادات",
+        "allow_users_to_share_rooms": "السماح للمستخدمين بمشاركة الغرف",
+        "allow_users_to_share_rooms_description": "سيؤدي الإغلاق لإزالة الزر من قائمة خيارات الغرفة، مما يمنع المستخدمين من مشاركة الغرف",
+        "allow_users_to_preupload_presentation": "السماح للمستخدمين برفع عرض تقديمي مسبقاً",
+        "allow_users_to_preupload_presentation_description": "يمكن للمستخدمين رفع عرض تقديمي مسبقاً لاستخدامه كعرض افتراضي لتلك الغرفة",
+        "show_sign_in_on_room_join": "إظهار رابط تسجيل الدخول عند الانضمام للغرفة",
+        "show_sign_in_on_room_join_description": "إذا لم يكن المستخدم مسجلاً للدخول، سيظهر رابط تسجيل الدخول أسفل الكارت عند دخول الغرفة",
+        "default_visibility": "ظهور التسجيل الافتراضي",
+        "default_visibility_description": "جميع التسجيلات المنشأة حديثاً سيكون لها هذا الظهور افتراضياً",
+        "session_timeout": "مهلة الجلسة",
+        "session_timeout_description": "يمكنك تهيئة مهلة الجلسة بكوكيز افتراضي لمدة يوم واحد أو كوكيز ممتد لمدة 7 أيام",
+        "default_session_timeout": "افتراضي (يوم واحد)",
+        "extended_session_timeout": "ممتد (7 أيام)"
+      },
+      "registration": {
+        "registration": "التسجيل",
+        "role_mapping_by_email": "ربط الصلاحيات بالبريد",
+        "role_mapping_by_email_description": "ربط المستخدم بصلاحية باستخدام بريده الإلكتروني. يجب أن يكون بالتنسيق: role1=email1,role2=email2",
+        "enter_role_mapping_rule": "أدخل قاعدة ربط الصلاحيات",
+        "resync_on_login": "إعادة مزامنة بيانات المستخدم عند كل تسجيل دخول",
+        "resync_on_login_description": "إعادة مزامنة معلومات المستخدم في كل مرة يسجل فيها الدخول، لجعل مزود المصادقة الخارجي يطابق المعلومات في Greenlight دائماً",
+        "default_role": "الصلاحية الافتراضية",
+        "default_role_description": "الصلاحية الافتراضية التي سيتم تعيينها للمستخدمين الجدد",
+        "registration_method": "طريقة التسجيل",
+        "registration_method_description": "تغيير طريقة تسجيل المستخدمين في الموقع",
+        "registration_methods": {
+          "open": "تسجيل مفتوح",
+          "invite": "انضمام عبر دعوة",
+          "approval": "موافقة/رفض"
+        },
+        "allowed_domains": "نطاقات البريد المسموحة",
+        "allowed_domains_signup_description": "السماح لنطاقات بريد محددة بالتسجيل. يجب أن يكون التنسيق: @test.com,domain.com",
+        "enter_allowed_domains_rule": "أدخل النطاقات المسموحة"
+      }
+    },
+    "room_configuration": {
+      "room_configuration": "تهيئة الغرفة",
+      "default": "اختياري (الافتراضي: مفعل)",
+      "optional": "اختياري (الافتراضي: معطل)",
+      "enabled": "مفعل إجبارياً",
+      "disabled": "معطل",
+      "configurations": {
+        "allow_room_to_be_recorded": "السماح بتسجيل الغرفة",
+        "allow_room_to_be_recorded_description": "يسمح لمالكي الغرف بتحديد ما إذا كانوا يريدون خيار تسجيل الغرفة أم لا. في حالة التفعيل، يجب على المشرف الضغط على زر 'تسجيل' بمجرد بدء الاجتماع.",
+        "require_user_signed_in": "طلب تسجيل دخول المستخدمين قبل الانضمام",
+        "require_user_signed_in_description": "يسمح فقط للمستخدمين الذين لديهم حساب في Greenlight بالانضمام للاجتماع. إذا لم يسجلوا الدخول، سيتم توجيههم لصفحة تسجيل الدخول.",
+        "require_mod_approval": "طلب موافقة المشرف قبل الانضمام",
+        "require_mod_approval_description": "ينبه مشرف اجتماع منصة أسهل التعليمية عندما يحاول مستخدم الانضمام. إذا تمت الموافقة، سيتمكن من الانضمام.",
+        "allow_any_user_to_start_meeting": "السماح لأي مستخدم ببدء الاجتماع",
+        "allow_any_user_to_start_meeting_description": "يسمح لأي مستخدم ببدء الاجتماع في أي وقت. افتراضياً، يمكن لمالك الغرفة فقط بدء الاجتماع.",
+        "allow_users_to_join_as_mods": "جميع المستخدمين ينضمون كمشرفين",
+        "allow_users_to_join_as_mods_description": "يعطي جميع المستخدمين صلاحيات المشرف في منصة أسهل التعليمية عند انضمامهم للاجتماع",
+        "mute_users_on_join": "كتم صوت المستخدمين عند الانضمام",
+        "mute_users_on_join_description": "يكتم صوت المستخدم تلقائياً عند انضمامه لاجتماع منصة أسهل التعليمية",
+        "viewer_access_code": "رمز وصول المشاهد",
+        "viewer_access_code_description": "يسمح لمالكي الغرف بالحصول على رمز عشوائي يمكن مشاركته مع المستخدمين. سيوطلب الرمز، إذا تم توليده، من المستخدمين للانضمام.",
+        "mod_access_code": "رمز وصول المشرف",
+        "mod_access_code_description": "يسمح لمالكي الغرف بالحصول على رمز عشوائي يمكن مشاركته مع المستخدمين. لن يطلب الرمز للانضمام، وعند استخدامه سينضم المستخدم كمشرف."
+      }
+    },
+    "roles": {
+      "role": "الصلاحية",
+      "roles": "الصلاحيات",
+      "administrator": "مسؤول",
+      "guest": "ضيف",
+      "manage_roles": "إدارة الصلاحيات",
+      "delete_role": "حذف الصلاحية",
+      "are_you_sure_delete_role": "هل أنت متأكد أنك تريد حذف هذه الصلاحية؟",
+      "enter_role_name": "أدخل اسم الصلاحية",
+      "add_role": "+ إنشاء صلاحية",
+      "create_role": "إنشاء صلاحية",
+      "create_new_role": "إنشاء صلاحية جديدة",
+      "no_role_found": "لم يتم العثور على صلاحية.",
+      "search_not_found": "لم يتم العثور على صلاحيات",
+      "edit": {
+        "create_room": "السماح للمستخدمين بهذه الصلاحية بإنشاء غرف",
+        "record": "السماح للمستخدمين بهذه الصلاحية بتسجيل اجتماعاتهم",
+        "manage_users": "السماح للمستخدمين بهذه الصلاحية بإدارة المستخدمين",
+        "manage_rooms": "السماح للمستخدمين بهذه الصلاحية بإدارة غرف الخادم",
+        "manage_recordings": "السماح للمستخدمين بهذه الصلاحية بإدارة تسجيلات الخادم",
+        "manage_site_settings": "السماح للمستخدمين بهذه الصلاحية بإدارة إعدادات الموقع",
+        "manage_roles": "السماح للمستخدمين بهذه الصلاحية بتعديل الصلاحيات الأخرى",
+        "shared_list": "تضمين المستخدمين بهذه الصلاحية في القائمة المنسدلة لمشاركة الغرف",
+        "room_limit": "حد الغرف",
+        "email_on_signup": "تلقي بريد إلكتروني عند تسجيل مستخدم جديد",
+        "allowed_recording_visibility": "ظهور التسجيلات المسموح به"
+      }
+    }
+  },
+  "toast": {
+    "success": {
+      "user": {
+        "user_created": "تم إنشاء مستخدم جديد.",
+        "user_updated": "تم تحديث المستخدم.",
+        "user_deleted": "تم حذف المستخدم.",
+        "avatar_updated": "تم تحديث الصورة الرمزية.",
+        "password_changed": "تم تحديث كلمة المرور بنجاح. يرجى تسجيل الدخول مجدداً.",
+        "password_updated": "تم تحديث كلمة المرور.",
+        "account_activated": "تم تفعيل حسابك.",
+        "activation_email_sent": "تم إرسال بريد إلكتروني يحتوي على تعليمات تفعيل حسابك.",
+        "reset_pwd_email_sent": "تم إرسال بريد إلكتروني يحتوي على تعليمات إعادة تعيين كلمة المرور."
+      },
+      "session": {
+        "signed_out": "لقد قمت بتسجيل الخروج."
+      },
+      "room": {
+        "room_created": "تم إنشاء غرفة جديدة.",
+        "room_updated": "تم تحديث الغرفة.",
+        "room_deleted": "تم حذف الغرفة.",
+        "room_shared": "تم مشاركة الغرفة.",
+        "room_unshared": "تم إلغاء مشاركة الغرفة.",
+        "recordings_synced": "تم مزامنة تسجيلات الغرفة.",
+        "room_configuration_updated": "تم تحديث تهيئة الغرفة.",
+        "room_setting_updated": "تم تحديث إعداد الغرفة.",
+        "presentation_updated": "تم تحديث العرض التقديمي.",
+        "presentation_deleted": "تم حذف العرض التقديمي.",
+        "joining_meeting": "جاري الانضمام للاجتماع...",
+        "meeting_started": "بدأ الاجتماع.",
+        "access_code_copied": "تم نسخ رمز الوصول.",
+        "access_code_generated": "تم توليد رمز وصول جديد.",
+        "access_code_deleted": "تم حذف رمز الوصول.",
+        "copied_meeting_url": "تم نسخ رابط الاجتماع. يمكن استخدام الرابط للانضمام للاجتماع.",
+        "copied_viewer_code": "تم نسخ رمز وصول المشاهد.",
+        "copied_moderator_code": "تم نسخ رمز وصول المشرف."
+      },
+      "site_settings": {
+        "site_setting_updated": "تم تحديث إعدادات الموقع.",
+        "brand_color_updated": "تم تحديث لون العلامة التجارية.",
+        "brand_image_updated": "تم تحديث صورة العلامة التجارية.",
+        "brand_image_deleted": "تم حذف صورة العلامة التجارية.",
+        "privacy_policy_updated": "تم تحديث إشعار الخصوصية.",
+        "helpcenter_updated": "تم تحديث رابط مركز المساعدة.",
+        "terms_of_service_updated": "تم تحديث شروط الخدمة.",
+        "maintenance_updated": "تم تحديث بنر الصيانة.",
+        "allowed_domains_signup_updated": "تم تحديث نطاقات البريد المسموحة."
+      },
+      "recording": {
+        "recording_visibility_updated": "تم تحديث ظهور التسجيل.",
+        "recording_name_updated": "تم تحديث اسم التسجيل.",
+        "recording_deleted": "تم حذف التسجيل.",
+        "copied_urls": "تم نسخ روابط التسجيل."
+      },
+      "role": {
+        "role_created": "تم إنشاء صلاحية جديدة.",
+        "role_updated": "تم تحديث الصلاحية.",
+        "role_deleted": "تم حذف الصلاحية.",
+        "role_permission_updated": "تم تحديث أذونات الصلاحية."
+      },
+      "invitations": {
+        "invitation_sent": "تم إرسال الدعوة.",
+        "invitation_revoked": "تم سحب الدعوة"
+      }
+    },
+    "error": {
+      "problem_completing_action": "لا يمكن إكمال الإجراء. يرجى المحاولة مجدداً.",
+      "server_type_unavailable": "نوع الخادم المطلوب غير متوفر. يرجى اختيار نوع مختلف في إعدادات الغرفة.",
+      "file_type_not_supported": "نوع الملف غير مدعوم.",
+      "file_size_too_large": "حجم الملف كبير جداً.",
+      "file_upload_error": "لا يمكن رفع الملف.",
+      "signin_required": "يجب تسجيل الدخول للوصول لهذه الصفحة.",
+      "malware_detected": "تم كشف برمجيات خبيثة! قد يحتوي الملف الذي رفعته على برمجيات خبيثة. يرجى التحقق من ملفك والمحاولة مجدداً.",
+      "roles": {
+        "role_assigned": "لا يمكن حذف هذه الصلاحية لأنها معينة لمستخدم واحد على الأقل."
+      },
+      "users": {
+        "signup_error": "لا يمكن توثيقك. يرجى الاتصال بالمسؤول.",
+        "invalid_invite": "رمز الدعوة الخاص بك غير صالح أو غير صحيح. يرجى الاتصال بالمسؤول للحصول على رمز جديد.",
+        "email_exists": "يوجد حساب مسجل بهذا البريد بالفعل. يرجى المحاولة ببريد آخر.",
+        "old_password": "كلمة المرور التي أدخلتها غير صحيحة.",
+        "pending": "تسجيلك قيد انتظار موافقة المسؤول. يرجى المحاولة لاحقاً.",
+        "banned": "ليس لديك صلاحية للوصول لهذا التطبيق. يرجى الاتصال بالمسؤول إذا كنت تعتقد أن هذا خطأ."
+      },
+      "rooms": {
+        "room_limit": "لا يمكن إنشاء الغرفة بسبب الوصول لحد الغرف المسموح به."
+      },
+      "session": {
+        "invalid_credentials": "اسم المستخدم أو كلمة المرور غير صحيحة. يرجى التحقق من بياناتك والمحاولة مجدداً."
+      }
+    }
+  },
+  "global_error_page": {
+    "title": "خطأ",
+    "message": "عذراً، حدث خطأ ما. إذا تكرر الأمر، يرجى الاتصال بالمسؤول."
+  },
+  "not_found_error_page": {
+    "title": "الصفحة غير موجودة",
+    "message": "عذراً، لا يمكن العثور على الصفحة التي تحاول الوصول إليها."
+  },
+  "account_activation_page": {
+    "title": "تفعيل الحساب",
+    "account_unverified": "لم يتم التحقق من حسابك بعد.",
+    "message": "لاستخدام Greenlight، يرجى التحقق من حسابك باتباع التعليمات الموجودة في بريد التفعيل المرسل إليك.",
+    "resend_activation_link": "إذا لم تصلك رسالة التفعيل أو واجهت مشكلة في استخدامها، اضغط على الزر أدناه لطلب بريد تفعيل جديد.",
+    "resend_btn_lbl": "إعادة إرسال التحقق"
+  },
+  "forms": {
+    "validations": {
+      "full_name": {
+        "required": "يرجى إدخال اسم كامل",
+        "min": "يجب أن يكون الاسم بطول حرفين على الأقل",
+        "max": "يجب أن يكون الاسم بطول 255 حرفاً كحد أقصى"
+      },
+      "email": {
+        "required": "يرجى إدخال بريد إلكتروني",
+        "email": "القيمة المدخلة لا تطابق تنسيق البريد الإلكتروني",
+        "min": "يجب أن يكون البريد بطول 6 أحرف على الأقل",
+        "max": "يجب أن يكون البريد بطول 255 حرفاً كحد أقصى"
+      },
+      "password": {
+        "required": "يرجى إدخال كلمة مرور",
+        "match": "يجب أن تحتوي كلمة المرور على الأقل:",
+        "min": "- ثمانية أحرف",
+        "lower": "- حرف صغير واحد",
+        "upper": "- حرف كبير واحد",
+        "digit": "- رقم واحد",
+        "symbol": "- رمز واحد",
+        "max": "يجب أن تكون كلمة المرور بطول 255 حرفاً كحد أقصى"
+      },
+      "password_confirmation": {
+        "required": "يرجى إدخال تأكيد كلمة المرور",
+        "match": "كلمات المرور غير متطابقة"
+      },
+      "emails": {
+        "required": "يرجى إدخال بريد إلكتروني واحد صحيح على الأقل",
+        "list": "يرجى تقديم قائمة ببريد إلكتروني مفصولة بفاصلة (user@users.com,user1@users.com,user2@users.com)"
+      },
+      "role_name": {
+        "required": "يرجى إدخال اسم الصلاحية"
+      },
+      "role": {
+        "limit": {
+          "required": "يرجى إدخال حد عدد الغرف",
+          "min": "الحد الأدنى المسموح به هو 0",
+          "max": "الحد الأقصى المسموح به هو 100"
+        },
+        "type": {
+          "error": "يجب عليك تحديد رقم"
+        }
+      },
+      "room": {
+        "name": {
+          "required": "يرجى إدخال اسم الغرفة.",
+          "min": "يجب أن يكون الاسم بطول حرفين على الأقل"
+        }
+      },
+      "room_join": {
+        "name": {
+          "required": "يرجى إدخال اسمك."
+        }
+      },
+      "url": {
+        "invalid": "رابط غير صالح"
+      },
+      "text_form": {
+        "value": {
+          "required": "يرجى إدخال رسالة ما"
+        }
+      }
+    },
+    "room": {
+      "fields": {
+        "name": {
+          "label": "اسم الغرفة",
+          "placeholder": "أدخل اسم الغرفة..."
+        }
+      }
+    },
+    "room_join": {
+      "fields": {
+        "name": {
+          "label": "الاسم",
+          "placeholder": "أدخل اسمك"
+        },
+        "access_code": {
+          "label": "رمز الوصول",
+          "placeholder": "أدخل رمز الوصول"
+        },
+        "recording_consent": {
+          "label": "أقر بأن هذه الجلسة قد يتم تسجيلها. قد يشمل ذلك صوتي وفيديو الخاص بي إذا تم تفعيلهما."
+        }
+      }
+    },
+    "user": {
+      "signup": {
+        "fields": {
+          "full_name": {
+            "label": "الاسم الكامل",
+            "placeholder": "أدخل اسمك الكامل"
+          },
+          "email": {
+            "label": "البريد الإلكتروني",
+            "placeholder": "أدخل بريدك الإلكتروني"
+          },
+          "password": {
+            "label": "كلمة المرور",
+            "placeholder": "أنشئ كلمة مرور"
+          },
+          "password_confirmation": {
+            "label": "تأكيد كلمة المرور",
+            "placeholder": "أكد كلمة المرور"
+          }
+        }
+      },
+      "signin": {
+        "fields": {
+          "email": {
+            "label": "البريد الإلكتروني",
+            "placeholder": "البريد الإلكتروني"
+          },
+          "password": {
+            "label": "كلمة المرور",
+            "placeholder": "كلمة المرور"
+          },
+          "remember_me": {
+            "label": "تذكرني"
+          }
+        }
+      },
+      "change_password": {
+        "fields": {
+          "old_password": {
+            "label": "كلمة المرور الحالية",
+            "placeholder": "أدخل كلمة المرور الخاصة بك"
+          },
+          "new_password": {
+            "label": "كلمة المرور الجديدة",
+            "placeholder": "أدخل كلمة مرورك الجديدة"
+          },
+          "password_confirmation": {
+            "label": "تأكيد كلمة المرور",
+            "placeholder": "أكد كلمة مرورك الجديدة"
+          }
+        },
+        "validations": {
+          "old_password": {
+            "required": "يرجى إدخال كلمة المرور الحالية"
+          }
+        }
+      },
+      "forget_password": {
+        "fields": {
+          "email": {
+            "label": "البريد الإلكتروني",
+            "placeholder": "أدخل بريد الحساب"
+          }
+        },
+        "validations": {
+          "email": {
+            "required": "يرجى إدخال بريد الحساب"
+          }
+        }
+      },
+      "reset_password": {
+        "fields": {
+          "new_password": {
+            "label": "كلمة المرور الجديدة",
+            "placeholder": "أدخل كلمة مرورك الجديدة"
+          },
+          "password_confirmation": {
+            "label": "تأكيد كلمة المرور",
+            "placeholder": "أكد كلمة مرورك الجديدة"
+          }
+        }
+      },
+      "update_user": {
+        "fields": {
+          "full_name": {
+            "label": "الاسم الكامل"
+          },
+          "email": {
+            "label": "البريد الإلكتروني"
+          },
+          "language": {
+            "label": "اللغة"
+          },
+          "role": {
+            "label": "الصلاحية"
+          }
+        }
+      }
+    },
+    "admin": {
+      "createUser": {
+        "fields": {
+          "full_name": {
+            "label": "الاسم الكامل",
+            "placeholder": "أدخل الاسم الكامل للمستخدم"
+          },
+          "email": {
+            "label": "البريد الإلكتروني",
+            "placeholder": "أدخل بريد المستخدم"
+          },
+          "password": {
+            "label": "كلمة المرور",
+            "placeholder": "أدخل كلمة مرور المستخدم"
+          },
+          "password_confirmation": {
+            "label": "تأكيد كلمة المرور",
+            "placeholder": "أكد كلمة المرور"
+          }
+        }
+      },
+      "invite_user": {
+        "fields": {
+          "emails": {
+            "label": "رسائل البريد الإلكتروني"
+          }
+        }
+      },
+      "site_settings": {
+        "fields": {
+          "value": {
+            "placeholder": "أدخل الرابط هنا...",
+            "text_placeholder": "أدخل النص هنا..."
+          }
+        }
+      },
+      "roles": {
+        "fields": {
+          "name": {
+            "label": "اسم الصلاحية",
+            "placeholder": "أدخل اسم الصلاحية..."
+          }
+        }
+      }
+    }
   }
 }

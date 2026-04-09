@@ -571,6 +571,7 @@ input[type='checkbox'] {
 .logo {
   max-width: 250px;
   max-height: 125px;
+  object-fit: contain;
 }
 
 .logo-wrapper {
@@ -770,6 +771,7 @@ input[type="range"]:focus::-moz-range-thumb {
 .large-circle {
   width: 150px;
   height: 150px;
+  object-fit: contain;
 }
 
 .back-button {

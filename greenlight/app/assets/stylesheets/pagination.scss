@@ -42,14 +42,14 @@
 
   .ui.menu > .item:first-child {
     display: block;
-    margin-right: auto;
+    margin-inline-end: auto;
     padding: 0 !important;
   }
 
   .ui.menu > .item:last-child {
     display: block;
-    margin-left: auto;
-    margin-right: 0 !important;
+    margin-inline-start: auto;
+    margin-inline-end: 0 !important;
     padding: 0 !important;
   }
 

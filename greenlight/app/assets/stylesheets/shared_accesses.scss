@@ -29,7 +29,7 @@
 
 #shared-access-modal {
   .modal-header {
-    margin-left: 0 !important;
+    margin-inline-start: 0 !important;
   }
 
   // Height of Modal with 4 rows of users in xxl screen
@@ -40,6 +40,6 @@
   #shared-access-modal-buttons {
     position: absolute;
     bottom: 16px;
-    right: 16px;
+    inset-inline-end: 16px;
   }
 }

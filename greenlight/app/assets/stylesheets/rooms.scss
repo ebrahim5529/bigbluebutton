@@ -53,7 +53,7 @@
 
   .room-card-badges {
     margin-bottom: auto;
-    margin-left: auto;
+    margin-inline-start: auto;
   }
 
   .card-footer {
@@ -79,7 +79,7 @@
     position: relative;
     button {
       position: absolute;
-      right: 5px;
+      inset-inline-end: 5px;
       top: 0px;
     }
   }
